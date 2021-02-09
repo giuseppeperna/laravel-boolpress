@@ -37400,8 +37400,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\Giuseppe\Desktop\Web Development\Corso Full Stack Web Developer\Esercizi\Lezione 90\boolpress\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\Giuseppe\Desktop\Web Development\Corso Full Stack Web Developer\Esercizi\Lezione 90\boolpress\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\Giuseppe\Desktop\Web Development\Corso Full Stack Web Developer\Esercizi\Lezione 90\laravel-boolpress\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\Giuseppe\Desktop\Web Development\Corso Full Stack Web Developer\Esercizi\Lezione 90\laravel-boolpress\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

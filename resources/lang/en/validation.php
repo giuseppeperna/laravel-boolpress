@@ -130,8 +130,25 @@ return [
     */
 
     'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
+        'title' => [
+            'required' => 'Inserire un :attribute.',
+            'min' => 'il :attribute deve essere di almeno :min caratteri.'
+        ],
+        'author' => [
+            'required' => 'Inserire un :attribute.',
+            'string' => 'Il campo :attribute può contenere solo testo.'
+        ],
+        'category_id' => [
+            'required' => 'Inserire una :attribute.',
+            'not_in' => 'Selezionare una :attribute.'
+        ],
+        'description' => [
+            'required' => 'Inserire una :attribute.',
+            'between' => 'La :attribute deve essere compresa tra :min e :max caratteri.'
+        ],
+        'tags' => [
+            'required' => 'Inserire almeno un :attribute.',
+            'between' => 'La :attribute deve essere compresa tra :min e :max caratteri.'
         ],
     ],
 
@@ -146,6 +163,12 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'title' => 'titolo',
+        'author' => 'autore',
+        'category_id' => 'categoria',
+        'description' => 'descrizione',
+        'tags' => 'tag'
+    ],
 
 ];
