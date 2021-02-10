@@ -26,8 +26,18 @@
     <tr>
         <td>{{ $post->id }}</td>
         <td>{{ $post->title }}</td>
-        <td>{{ $post->author }}</td>
-        <td>{{ $post->postInfo['slug'] }}</td>
+        <td>@if(isset($search))
+                {{ $post->name }}
+            @else
+                {{ $post->users['name'] }}
+            @endif
+        </td>
+        <td>@if(isset($search))
+                {{ $post->slug }}
+            @else
+                {{ $post->postInfo['slug']}}
+            @endif
+        </td>
         <td>
             <a href="{{ route('posts.show', $post->id) }}">Dettagli</a>
         </td>

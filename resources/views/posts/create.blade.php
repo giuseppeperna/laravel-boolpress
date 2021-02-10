@@ -16,13 +16,6 @@
             <p>{{ $message }}</p>
         @enderror
 
-        <label for="author">Autore</label>
-        <input type="text" name="author" class="form-control" id="author" placeholder="Autore" 
-        value="{{ old('author') }}">
-        @error('author')
-            <p>{{ $message }}</p>
-        @enderror
-
         <label>Categoria</label>
         <div class="categories">
             <select name="category_id" id="">

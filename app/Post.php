@@ -8,7 +8,7 @@ class Post extends Model
 {
     protected $table = 'posts';
 
-    protected $fillable = ["title","author", "category_id"];
+    protected $fillable = ["title", "user_id", "category_id"];
 
     public function postInfo() {
         return $this->hasOne('App\PostInformation', 'post_id', 'id');
@@ -20,5 +20,9 @@ class Post extends Model
 
     public function tags(){
         return $this->belongsToMany("App\Tag", "post_tag", "post_id", "tag_id");
+    }
+
+    public function users() {
+        return $this->belongsTo('App\User', 'user_id', 'id');
     }
 }

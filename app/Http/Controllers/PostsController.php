@@ -5,10 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\PostFormRequest;
+use Illuminate\Support\Facades\DB;
 use App\Post;
 use App\PostInformation;
 use App\Category;
 use App\Tag;
+use App\User;
 use Faker\Generator as Faker;
 
 
@@ -24,7 +26,7 @@ class PostsController extends Controller
         $this->middleware('auth', ['except' => ['index','show']]);
     }
 
-    
+
     /**
      * Display a listing of the resource.
      *
@@ -34,7 +36,10 @@ class PostsController extends Controller
     {
         $search = $request->search;
         if($search) {
-            $posts = Post::where('title', 'LIKE', "%$search%")->orWhere('author', 'LIKE', "%$search%")->get();
+            $posts = DB::table('users')
+            ->join('posts', 'user_id', '=', 'users.id')
+            ->join('posts_information', 'post_id', '=', 'posts.id')
+            ->where('title', 'LIKE', "%$search%")->orWhere('name', 'LIKE', "%$search%")->get();
         }else{
             $posts = Post::paginate(20);
         }
@@ -64,10 +69,12 @@ class PostsController extends Controller
      */
     public function store(PostFormRequest $request, Faker $faker)
     {
+        $userId = Auth::id();
         $data = $request->validated();
+
         $newPost = Post::create([
             "title" => $data["title"],
-            "author" => $data["author"],
+            "user_id"=> $userId,
             "category_id" => $data["category_id"]
         ]);
 
@@ -84,7 +91,6 @@ class PostsController extends Controller
         foreach ($data["tags"] as $tag){
             $newPost->tags()->attach($tag);
         }
-
 
         return redirect()->route('posts.index');
     }

@@ -18,11 +18,13 @@ class PostTagSeeder extends Seeder
         $posts= Post::all();
         $tags = Tag::all();
 
+        $tagIDs = DB::table('tags')->pluck('id');
+
         foreach($posts as $post){
             for ($i=1; $i <= $faker->numberBetween(1, $tags->count()); $i++){
                 DB::table('post_tag')->insert([
                     'post_id' => $post->id,
-                    'tag_id'=> $i
+                    'tag_id'=> $faker->randomElement($tagIDs)
                 ]);
             }
         }

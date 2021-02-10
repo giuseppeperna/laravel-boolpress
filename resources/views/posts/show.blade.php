@@ -16,7 +16,7 @@
     <tr>
       <td>{{ $post['title'] }}</td>
       <td>{{ $category['title'] }}</td>
-      <td>{{ $post['author'] }}</td>
+      <td>{{ $post->users['name'] }}</td>
       <td>{{ $info['description'] }}</td>
       <td>
         @foreach($post->tags as $tag)
