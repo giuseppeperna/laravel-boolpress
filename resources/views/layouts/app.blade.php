@@ -49,7 +49,8 @@
                                 </li>
                             @endif
                         @else
-                            <li class="nav-item dropdown">
+                            <li class="nav-item dropdown user-menu">
+
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
                                 </a>
@@ -65,6 +66,9 @@
                                         @csrf
                                     </form>
                                 </div>
+
+                                <img class="avatar" src="{{ asset(Auth::user()->avatar_path)}}" alt="avatar">
+
                             </li>
                         @endguest
                     </ul>

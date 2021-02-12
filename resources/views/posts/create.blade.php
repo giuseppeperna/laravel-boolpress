@@ -4,7 +4,7 @@
 
 @section('content')
 
-<form method="POST" action="{{route('posts.store')}}">
+<form method="POST" action="{{route('posts.store')}}" enctype="multipart/form-data">
     <div class="form-group container-form">
         @csrf
         @method('Post')
@@ -28,6 +28,13 @@
             <p>{{ $message }}</p>
             @enderror
         </div>
+
+        <label for="image_path">Immagine</label>
+        <input type="file" name="image_path" class="form-control" id="image_path">
+        @error('image_path')
+            <p>{{ $message }}</p>
+        @enderror
+
         <label for="description">Descrizione</label>
         <input type="text" name="description" class="form-control" id="description" placeholder="Descrizione"
         value="{{ old('description') }}">

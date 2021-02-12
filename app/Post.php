@@ -8,7 +8,7 @@ class Post extends Model
 {
     protected $table = 'posts';
 
-    protected $fillable = ["title", "user_id", "category_id"];
+    protected $fillable = ["title", "user_id", "category_id", 'image_path'];
 
     public function postInfo() {
         return $this->hasOne('App\PostInformation', 'post_id', 'id');

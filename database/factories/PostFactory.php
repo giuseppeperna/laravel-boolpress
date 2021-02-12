@@ -13,6 +13,7 @@ $factory->define(Post::class, function (Faker $faker) {
     return [
         'category_id'=> $faker->randomElement($categoryIDs),
         'title'=> $faker->sentence(),
+        'image_path' => $faker->imageUrl(),
         'user_id'=>$faker->randomElement($userIDs),
     ];
 });

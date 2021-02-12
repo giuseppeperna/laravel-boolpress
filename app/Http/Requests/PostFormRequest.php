@@ -26,6 +26,7 @@ class PostFormRequest extends FormRequest
         return [
             'title' => 'bail|required|min:3',
             'category_id' => 'required|not_in:...',
+            'image_path' => 'mimes:jpeg,jpg,png|max:5120',
             'description' => 'bail|required|between:5,180',
             'tags' => 'required'
         ];

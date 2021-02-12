@@ -74,10 +74,10 @@ class PostsController extends Controller
 
         $newPost = Post::create([
             "title" => $data["title"],
+            "image_path" => $data["image_path"]->storePublicly('img'),
             "user_id"=> $userId,
             "category_id" => $data["category_id"]
         ]);
-
         $newPost->save();
 
         $postInfo = PostInformation::create([

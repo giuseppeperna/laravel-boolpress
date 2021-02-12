@@ -127,3 +127,13 @@
 .search-bar * {
     margin-right: 8px;
 }
+
+.user-menu {
+    display: flex;
+    align-items: center;
+}
+
+.avatar {
+    width: 50px;
+    border-radius:50%;
+}
